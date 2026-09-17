@@ -9,6 +9,7 @@ targets:
     sources: 
       - Sources
     info:
+      path: Info.plist
       properties:
         UILaunchStoryboardName: LaunchScreen
         NSCameraUsageDescription: "Камера нужна для трансляции видео на компьютер."
