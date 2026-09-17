@@ -1,0 +1,16 @@
+name: OnlyCam
+options:
+  bundleIdPrefix: com.anton
+targets:
+  OnlyCam:
+    type: application
+    platform: iOS
+    deploymentTarget: "15.0"
+    sources: 
+      - .
+    info:
+      path: Info.plist
+      properties:
+        UILaunchStoryboardName: LaunchScreen
+        NSCameraUsageDescription: "Камера нужна для трансляции видео на компьютер."
+        NSLocalNetworkUsageDescription: "Сеть нужна для подключения к ПК."
