@@ -1,0 +1,35 @@
+name: Build iOS App
+
+on: [push]
+
+jobs:
+  build:
+    runs-on: macos-latest
+    steps:
+    - uses: actions/checkout@v3
+    
+    - name: Install XcodeGen
+      run: brew install xcodegen
+      
+    - name: Generate Project
+      run: |
+        cd iOSApp
+        xcodegen generate --spec project.yml
+        
+    - name: Build App
+      run: |
+        cd iOSApp
+        xcodebuild -project OnlyCam.xcodeproj -scheme OnlyCam -configuration Release -destination 'generic/platform=iOS' CODE_SIGNING_REQUIRED=NO CODE_SIGN_IDENTITY="" PROVISIONING_PROFILE_SPECIFIER="" -derivedDataPath build
+        
+    - name: Package IPA
+      run: |
+        cd iOSApp
+        mkdir -p Payload
+        mv build/Build/Products/Release-iphoneos/OnlyCam.app Payload/
+        zip -r OnlyCam.ipa Payload
+        
+    - name: Upload Artifact
+      uses: actions/upload-artifact@v3
+      with:
+        name: OnlyCam-App
+        path: iOSApp/OnlyCam.ipa
