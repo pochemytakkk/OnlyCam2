@@ -8,9 +8,7 @@ targets:
     deploymentTarget: "15.0"
     sources: 
       - Sources
-    info:
-      path: Info.plist
-      properties:
-        UILaunchStoryboardName: LaunchScreen
-        NSCameraUsageDescription: "Камера нужна для трансляции видео на компьютер."
-        NSLocalNetworkUsageDescription: "Сеть нужна для подключения к ПК."
+    settings:
+      GENERATE_INFOPLIST_FILE: YES
+      INFOPLIST_KEY_NSCameraUsageDescription: "Камера нужна для трансляции."
+      INFOPLIST_KEY_NSLocalNetworkUsageDescription: "Сеть нужна для подключения к ПК."
