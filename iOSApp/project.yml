@@ -7,9 +7,8 @@ targets:
     platform: iOS
     deploymentTarget: "15.0"
     sources: 
-      - .
+      - Sources
     info:
-      path: Info.plist
       properties:
         UILaunchStoryboardName: LaunchScreen
         NSCameraUsageDescription: "Камера нужна для трансляции видео на компьютер."
