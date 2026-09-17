@@ -6,7 +6,7 @@ jobs:
   build:
     runs-on: macos-latest
     steps:
-    - uses: actions/checkout@v3
+    - uses: actions/checkout@v4
     
     - name: Install XcodeGen
       run: brew install xcodegen
@@ -29,7 +29,7 @@ jobs:
         zip -r OnlyCam.ipa Payload
         
     - name: Upload Artifact
-      uses: actions/upload-artifact@v3
+      uses: actions/upload-artifact@v4
       with:
         name: OnlyCam-App
         path: iOSApp/OnlyCam.ipa
